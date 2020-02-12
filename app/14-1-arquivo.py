@@ -10,8 +10,3 @@ for l in arquivo:
     print( l.strip() )
 arquivo.close()
 
-
-
-## Metodo1 =  Cadastrar uma cerveja: nome, tipo
-## Metodo2 = Armazenar em um arquivo texto
-## Metodo3 = Ler os dados armazenados no arquivo texto
