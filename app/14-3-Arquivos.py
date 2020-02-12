@@ -2,17 +2,35 @@
 ## 2 - Metodo2 = Armazenar em um arquivo texto
 ## 3 - Metodo3 = Ler os dados armazenados no arquivo texto
 
-
+# Método Cadastrar 
+# Solicita através do console os dados para cadastro de uma cerveja
+# Armazena os dados lidos do console em um dicionário
+# Retorna ao final o dicionário 
 def cadastrar():
+    # Cria um dicionário vazio
     cerveja = {}
+    # Cria uma nova chave para o dicionário (chave 'nome')  e armazena o conteudo vindo do console
     cerveja['nome'] = input('Digite o nome : ')
+    # Cria uma nova chave para o dicionário (chave 'tipo') e armazena o conteudo vindo do console
     cerveja['tipo'] = input('Digite o tipo : ')
+    # Retorna o dicionário com as duas chaves e dados adionados 
     return cerveja
 
+# Método Salvar
+# Abre um arquivo específico em modo de adição de dados ('a')
+# Salva uma nova linha no arquivo texto aberto
+# Fecha o arquivo texto
+# Retorna uma mensagem informando que o dado foi salvo
 def salvar(dado):
+    # Abre o arquivo em formado de adição de dados (parâmetro 'a')
+    # Armazena este arquivo aberto em uma variável com o nome de 'arquivo'
     arquivo = open( r'app\cerveja.txt', 'a' )
+    # Adiciona uma nova linha ao arquivo através da função write()
+    # Na função write é passado '\n' para pular de linha e assim adionar cada dado em uma linha separada
     arquivo.write(f'{dado}\n')
+    # fecha o arquivo aberto pela função open()
     arquivo.close()
+    # Retorna uma mensagem para informar que os dados foram salvos
     return 'Dado salvo no arquivo'
 
 
