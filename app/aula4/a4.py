@@ -1,4 +1,4 @@
-from flask import Flask, render_template 
+from flask import Flask, render_template, redirect, request
 
 nome= 'Site Flask'
 lista_empresas = ['Proway', 'Hbsis', 'TSystems', 'Senior', 'Philips']
@@ -13,6 +13,15 @@ def inicio():
 def empresa():
     return render_template('empresa.html', titulo=nome, empresas=lista_empresas)
 
+@app.route('/cadastro-empresa')
+def cadastro_empresa():
+    return render_template('cadastro-empresa.html', titulo=nome )
+
+@app.route('/salvar-empresa')
+def salvar_empresa():
+    nome = request.args['nome']
+    lista_empresas.append(nome)
+    return redirect('/empresa')
 #---- Executa o servidor flask e inicia a app
 #--- Parâmetro debug=True, 
 #   faz servidor reiniciar quando arquivo python for alterado
