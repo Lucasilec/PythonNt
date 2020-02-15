@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, request
 
+from empresa import Empresa
+
 nome= 'Site Flask'
-lista_empresas = ['Proway', 'Hbsis', 'TSystems', 'Senior', 'Philips']
+lista_empresas = []
 
 app = Flask(__name__)
 
@@ -19,8 +21,12 @@ def cadastro_empresa():
 
 @app.route('/salvar-empresa')
 def salvar_empresa():
-    nome = request.args['nome']
-    lista_empresas.append(nome)
+    e = Empresa()    
+    e.nome = request.args['nome']
+    e.cnpj = request.args['cnpj']
+    e.descricao = request.args['descricao']
+
+    lista_empresas.append(e)
     return redirect('/empresa')
 #---- Executa o servidor flask e inicia a app
 #--- Parâmetro debug=True, 
